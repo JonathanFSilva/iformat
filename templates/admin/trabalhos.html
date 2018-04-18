@@ -1,0 +1,138 @@
+{% extends 'admin/includes/header.html' %}
+
+{% block content %}
+
+    <div id="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    {#  Mensagens de erro  #}
+                    {% if messages %}
+                        <br><br>
+                        {% for message in messages %}
+                            <div class="alert alert-callout {{ message.tags }}" role="alert" style="text-align: center">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <section class="style-default-bright" style="padding-top: 30px">
+            <div class="section-body">
+                <h2 class="text-primary">
+                    Meus Trabalhos
+                    <a href="{% url 'iformats.trabalhos:preambulo' %}" style="float: right;" class="btn btn-icon-toggle ink-reaction btn-floating-action btn-primary btn-lg" data-toggle="tooltip" data-placement="top" data-original-title="Novo trabalho"><i class="fa fa-plus"></i></a>
+                </h2>
+                <br>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Autor</th>
+                            <th>Ultima Edição</th>
+                            <th>Data de Criação</th>
+                            <th class="text-right">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for trabalho in trabalhos %}
+                        <tr>
+                            <td>{{ trabalho.titulo }}</td>
+                            <td>{{ trabalho.nome_autor }} {{ trabalho.sobrenome_autor }}</td>
+                            <td>{{ trabalho.ultima_edicao }}</td>
+                            <td>{{ trabalho.data_criacao }}</td>
+                            <td class="text-right">
+                                <a href="{% url 'iformats.trabalhos:download' trabalho.id %}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Download"><i class="fa fa-download"></i></a>
+                                <a href="{% url 'iformats.trabalhos:visualizar' trabalho.id %}" target="_blank" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Visualizar"><i class="fa fa-file-pdf-o"></i></a>
+                                <a href="{% url 'iformats.trabalhos:inicio' trabalho.id %}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Editar trabalho"><i class="fa fa-pencil"></i></a>
+{#                                <a href="{% url 'iformats.trabalhos:excluir_trabalho' trabalho.id %}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Excluir trabalho"><i class="fa fa-trash-o"></i></a>#}
+                                <a onclick="confirma_exclusao({{ trabalho.id }});" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Excluir trabalho"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                {% if trabalhos.has_other_pages %}
+                    <ul class="pagination">
+                        {% if trabalhos.has_previous %}
+                            <li><a href="?page={{ trabalhos.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><span>&laquo;</span></li>
+                        {% endif %}
+                        {% for i in trabalhos.paginator.page_range %}
+                            {% if trabalhos.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                            {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if trabalhos.has_next %}
+                            <li><a href="?page={{ trabalhos.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><span>&raquo;</span></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </div><!--end .section-body -->
+        </section>
+    </div>
+
+    {#  Confirmação de exclusão  #}
+    <div id="confirma" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmação de Exclusão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <p>Deseja continuar?</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href = '/trabalhos/'.concat(localStorage.getItem('trabalho_id'), '/excluir');">Excluir</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {# Modal de Confirmação de exclusao #}
+    <div id="confirma_exclusao" class="modal fade bs-example-modal-sm" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"> Confirmação de exclusão </h4>
+                </div>
+                <div class="modal-body">
+                    <p> Você deseja continuar?</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-success" > <i class="fa fa-fw fa-check"></i> </a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-fw fa-remove"></i> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function confirma_exclusao (trabalho_id) {
+            localStorage.setItem('trabalho_id', trabalho_id);
+
+            $('#confirma').modal();
+        }
+    </script>
+{% endblock %}

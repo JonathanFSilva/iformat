@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>IFORMAT</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <!-- END META -->
+
+    <!-- Icones -->
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'site/img/icon.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'site/img/icon.png' %}">
+
+    <!-- BEGIN STYLESHEETS -->
+    <link type="text/css" rel="stylesheet" href="{% static 'site/css/bootstrap.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'site/css/materialadmin.css' %}"/>
+
+    <!-- ICONES E FONTE -->
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"/>
+    <!-- END STYLESHEETS -->
+
+    {% block extrahead %}
+
+    {% endblock %}
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://codecovers.eu/assets/js/modules/materialadmin/libs/utils/html5shiv.js?1422823601"></script>
+    <script type="text/javascript" src="https://codecovers.eu/assets/js/modules/materialadmin/libs/utils/respond.min.js?1422823601"></script>
+    <![endif]-->
+</head>
+
+<body class="menubar-hoverable header-fixed ">
+
+    <!-- BEGIN HEADER-->
+    <header id="header">
+        <div class="headerbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="headerbar-left">
+                <ul class="header-nav header-nav-options">
+                    <li class="header-nav-brand">
+                        <div class="brand-holder">
+                            <a href="{% url 'iformats.trabalhos:trabalhos' %}">
+                                <span class="text-lg text-bold text-primary">IFORMAT</span>
+                            </a>
+                        </div>
+                    </li>
+                    {% if menu %}
+                    <li>
+                        <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="headerbar-right">
+
+                <ul class="header-nav header-nav-profile">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+{#                            <img src="http://www.codecovers.eu/assets/img/modules/materialadmin/avatar1.jpg?1422538623" alt="">#}
+                            <span class="profile-info">
+                                {{ user.get_full_name }}
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu animation-dock">
+                            <li><a href="{% url 'iformats.trabalhos:trabalhos' %}"><i class="fa fa-fw fa-book"></i> Meus Trabalhos</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER-->
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block footer %}
+{#        {% include 'admin/includes/footer.html' %}#}
+        <script src="{% static 'site/js/jquery.min.js' %}"></script>
+        <script src="{% static 'site/js/bootstrap.js' %}"></script>
+
+        <script src="{% static 'site/js/jquery.nanoscoller.min.js' %}"></script>
+
+        <script src="{% static 'site/js/cache/ec2c8835c9f9fbb7b8cd36464b491e73.js' %}"></script>
+        <script src="{% static 'site/js/cache/43ef607ee92d94826432d1d6f09372e1.js' %}"></script>
+        <script src="{% static 'site/js/cache/63d0445130d69b2868a8d28c93309746.js' %}"></script>
+        <script src="{% static 'site/js/demo/Demo.js' %}"></script>
+        <script src="{% static 'site/js/demo/DemoDashboard.js' %}"></script>
+
+        {% block scripts %}
+
+        {% endblock %}
+
+    {% endblock %}
+
+</body>
+
+</html>

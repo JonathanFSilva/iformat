@@ -1,0 +1,118 @@
+{% extends 'admin/includes/header.html' %}
+
+{% block content %}
+
+{#    {% if menu %}#}
+
+    {% block menu %}
+        {% include 'admin/includes/menu.html' %}
+    {% endblock %}
+
+{#    {% endif %}#}
+
+    <div id="content">
+        <section>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-lg-offset-3 col-sm-7">
+{#                        <h3>Preâmbulo</h3>#}
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="form" method="post" role="form">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="form-group floating-label">
+                                                {{ form.nome_autor }}
+                                                <label>Nome do autor:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group floating-label">
+                                                {{ form.sobrenome_autor }}
+                                                <label>Sobrenome:</label>
+                                                <p class="help-block">* Apenas o ultimo nome</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group floating-label">
+                                                {{ form.titulo }}
+                                                <label>Título do trabalho:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group floating-label">
+                                                {{ form.subtitulo }}
+                                                <label>Subtítulo (se houver):</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="form-group">
+                                                <select name="programa" required="" class="form-control" id="id_programa">
+                                                    <option value="" selected="">Selecione...</option>
+                                                    {% for grau, curso in cursos.items %}
+                                                        <optgroup label="{{ grau.grau }}">
+                                                        {% for c in curso %}
+                                                            <option value="{{ c.nome_curso }}">{{ c.nome_curso }}</option>
+                                                        {% endfor %}
+                                                        </optgroup>
+                                                    {% endfor %}
+                                                </select>
+                                                <label>Nome do Curso</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                {{ form.data_apresentacao }}
+                                                <label>Data da apresentação</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="form-group floating-label">
+                                                {{ form.nome_orientador }}
+                                                <label>Nome do Orientador</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                {{ form.titulacao_orientador }}
+                                                <label>Titulação do Orientador</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="form-group floating-label">
+                                                {{ form.nome_coorientador }}
+                                                <label>Nome do Coorientador</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                {{ form.titulacao_coorientador }}
+                                                <label>Titulação do Coorientador</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn ink-reaction btn-raised btn-primary"> Salvar </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

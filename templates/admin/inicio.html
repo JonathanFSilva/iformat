@@ -1,0 +1,137 @@
+{% extends 'admin/includes/header.html' %}
+
+{% block content %}
+
+    {% block menu %}
+        {% include 'admin/includes/menu.html' %}
+    {% endblock %}
+
+    <div id="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    {#  Mensagens de erro  #}
+                    {% if messages %}
+                        <br><br>
+                        {% for message in messages %}
+                            <div class="alert alert-callout {{ message.tags }}" role="alert" style="text-align: center">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-2">
+                        <div class="card ">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-body no-padding">
+                                        <ul class="list divider-full-bleed">
+
+                                            <li class="tile">
+                                                <a class="tile-content ink-reaction">
+                                                    <div class="tile-icon">
+                                                        <i class="fa fa-newspaper-o"></i>
+                                                    </div>
+                                                    <div class="tile-text">
+                                                        Titulo<br>
+                                                        {{ trabalho.titulo }}
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="tile">
+                                                <a class="tile-content ink-reaction">
+                                                    <div class="tile-icon">
+                                                        <i class="fa fa-user-o"></i>
+                                                    </div>
+                                                    <div class="tile-text">
+                                                        Autor<br>
+                                                        {{ trabalho.nome_autor }} {{ trabalho.sobrenome_autor }}
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="tile">
+                                                <a class="tile-content ink-reaction">
+                                                    <div class="tile-icon">
+                                                        <i class="fa fa-comment-o"></i>
+                                                    </div>
+                                                    <div class="tile-text">
+                                                        Orientador(a)<br>
+                                                        {{ trabalho.titulacao_orientador.sigla }} {{ trabalho.nome_orientador }}
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            {% if trabalho.nome_coorientador %}
+                                            <li class="tile">
+                                                <a class="tile-content ink-reaction">
+                                                    <div class="tile-icon">
+                                                        <i class="fa fa-comment-o"></i>
+                                                    </div>
+                                                    <div class="tile-text">
+                                                        Coorientador(a)<br>
+                                                        {{ trabalho.titulacao_coorientador.sigla }} {{ trabalho.nome_coorientador }}
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!--end .row -->
+                        </div><!--end .card -->
+                    </div><!--end .col -->
+                    <!-- END SITE ACTIVITY -->
+                </div><!--end .row -->
+                <div class="row">
+                    <!-- BEGIN SITE ACTIVITY -->
+                    <div class="col-md-9 col-md-offset-2">
+                        <center>
+                            <div class="row">
+{#                                <div class="col-sm-1 col-sm-offset-4">#}
+                                    <a href="{% url 'iformats.trabalhos:download' trabalho.id %}" style="background-color: white;"
+                                       class="btn btn-icon-toggle ink-reaction btn-floating-action btn-primary btn-lg"
+                                       data-toggle="tooltip" data-placement="top" data-original-title="Download"><i
+                                            class="fa fa-download"></i></a>
+{#                                </div>#}
+{#                                <div class="col-sm-1">#}
+                                    <a href="{% url 'iformats.trabalhos:visualizar' trabalho.id %}" style="background-color: white"
+                                       class="btn btn-icon-toggle ink-reaction btn-floating-action btn-primary btn-lg"
+                                       data-toggle="tooltip" data-placement="top" data-original-title="Visualizar"><i
+                                            class="fa fa-file-pdf-o"></i></a>
+{#                                </div>#}
+{#                                <div class="col-sm-1">#}
+                                    <a href="{% url 'iformats.trabalhos:editar_preambulo' trabalho.id %}" style="background-color: white"
+                                       class="btn btn-icon-toggle ink-reaction btn-floating-action btn-primary btn-lg"
+                                       data-toggle="tooltip" data-placement="top" data-original-title="Editar"><i
+                                            class="fa fa-pencil"></i></a>
+{#                                </div>#}
+{#                                <div class="col-sm-1">#}
+                                    <a href="{% url 'iformats.trabalhos:excluir_trabalho' trabalho.id %}" style="background-color: white"
+                                       class="btn btn-icon-toggle ink-reaction btn-floating-action btn-primary btn-lg"
+                                       data-toggle="tooltip" data-placement="top" data-original-title="Excluir"><i
+                                            class="fa fa-trash-o"></i></a>
+{#                                </div>#}
+{#                                <div class="col-sm-1">#}
+                                    <a href="{% url 'iformats.trabalhos:topico' trabalho.id %}" style="background-color: white"
+                                       class="btn btn-icon-toggle ink-reaction btn-floating-action btn-primary btn-lg"
+                                       data-toggle="tooltip" data-placement="top" data-original-title="Novo Tópico"><i
+                                            class="fa fa-plus"></i></a>
+{#                                </div>#}
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div><!--end .section-body -->
+        </section>
+    </div><!--end #content-->
+    <!-- END CONTENT -->
+
+{% endblock %}

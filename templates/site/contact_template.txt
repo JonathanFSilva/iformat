@@ -1,0 +1,8 @@
+Nome:
+{{ contact_name }}
+
+E-mail:
+{{ contact_email }}
+
+Menssgem:
+{{ form_content|safe|striptags }}

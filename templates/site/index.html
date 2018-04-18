@@ -1,0 +1,263 @@
+﻿{% extends 'site/base.html' %}
+
+
+{% block content %}
+
+    {% load static %}
+
+    <div class="section section-header">
+        <div class="parallax filter" style="height: 70vh !important;">
+            <div class="image"
+                style="background-image: url({% static 'site/img/banco-livros.jpg' %})">
+            </div>
+            <div class="container">
+                <div class="content">
+                    <div class="title-area">
+
+                        <h1 class="title-modern">IFORMAT</h1>
+
+                        <div class="separator line-separator">♦</div>
+                    </div>
+
+                   <div class="button-get-started">
+                       <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-white btn-fill btn-lg ">
+                           ENTRAR
+                       </a>
+                   </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="sobre" class="section" style="padding-top: 80px">
+        <div class="container">
+            <div class="row">
+                <div class="title-area">
+                    <h2>Plataforma inovadora para facilitar sua escrita de documentos</h2>
+                    <div class="separator separator-danger">✻</div>
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="info-icon">
+                        <div class="icon text-danger">
+                            <i class="pe-7s-graph1"></i>
+                        </div>
+                        <h3>Sucesso</h3>
+                        <p class="description">Acessando o IFORMAT, você fará documentos melhores!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-icon">
+                        <div class="icon text-danger">
+                            <i class="pe-7s-note2"></i>
+                        </div>
+                        <h3>Conteúdo</h3>
+                        <p class="description">A plataforma formata todo o documento, permitindo que você foque apenas no conteúdo!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-icon">
+                        <div class="icon text-danger">
+                            <i class="pe-7s-monitor"></i>
+                        </div>
+                        <h3>Online</h3>
+                        <p class="description">Todo o sistema é acessado de forma online, facilitando o manuseio!</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+
+
+    <div id="equipe" class="section section-our-team-freebie">
+        <div class="parallax filter filter-color-black">
+            <div class="image" style="background-image:url({% static 'site/img/livro.jpg' %})">
+            </div>
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="title-area">
+                            <h2>Quem somos nós?</h2>
+                            <div class="separator separator-danger">✻</div>
+                            <p class="description">Conheça abaixo nossa equipe de desenvolvedores.</p>
+                        </div>
+                    </div>
+                    <div class="team">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card card-member">
+                                            <div class="content">
+                                                <div class="avatar avatar-danger">
+                                                    <img alt="..." class="img-circle" src="{% static 'site/img/faces/jonathan.jpg' %}"/>
+                                                </div>
+                                                <div class="description">
+                                                    <h3 class="title">Jonathan</h3>
+                                                    <p class="small-text">Desenvolvedor</p>
+                                                    <br>
+{#                                                    <p class="description">Estudante do 6º Período Ciência da Computação - IFSULDEMINAS</p>#}
+                                                    <p class="description">Estudante do curso de Bacharelado em Ciência da Computação do Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas Gerais campus Muzambinho.</p>
+                                                </div>
+                                                <div class="footer">
+                                                    <a href="https://pt-br.facebook.com/people/Jonathan-Felipe/100009270573889" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card card-member">
+                                            <div class="content">
+                                                <div class="avatar avatar-danger">
+                                                    <img alt="..." class="img-circle" src="{% static 'site/img/faces/vitoria.jpg' %}"/>
+                                                </div>
+                                                <div class="description">
+                                                    <h3 class="title">Vitória</h3>
+                                                    <p class="small-text">Desenvolvedor</p>
+                                                    <br>
+{#                                                    <p class="description">Estudante do 6º Período Ciência da Computação - IFSULDEMINAS</p>#}
+                                                    <p class="description">Estudante do curso de Bacharelado em Ciência da Computação do Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas Gerais campus Muzambinho.</p>
+                                                </div>
+                                                <div class="footer">
+                                                    <a href="https://www.facebook.com/vitoria.mendes.942" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                                                    <span class="glyphicon-certificate"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <div id="contato" class="section section-contact-form">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                {#  Mensagens de erro  #}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {{ message.tags }}" role="alert" style="text-align: center">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="title-area">
+                <h2>Dúvidas ou Sugestões?</h2>
+                <div class="separator line-separator">♦</div>
+                <p class="description"> Entre em contato conosco e nos ajude a manter a plataforma em funcionamento!</p>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="contact-form">
+                        <form action="{% url 'iformats.core:contact' %}" method="post">{% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {% if form.contact_name.errors %}<div class="alert alert-danger alert-dismissable">{{ form.contact_name.errors }}</div>{% endif %}
+                                    <div class="form-group">
+                                        <label>Nome completo</label>
+                                        {{ form.contact_name }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    {% if form.contact_email.errors %}<div class="alert alert-danger alert-dismissable">{{ form.contact_email.errors }}</div>{% endif %}
+                                    <div class="form-group">
+                                        <label>E-mail</label>
+                                        {{ form.contact_email }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    {% if form.subject.errors %}<div class="alert alert-danger alert-dismissable">{{ form.subject.errors }}</div>{% endif %}
+                                    <div class="form-group">
+                                        <label>Assunto</label>
+                                        {{ form.subject }}
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    {% if form.content.errors %}<div class="alert alert-danger alert-dismissable">{{ form.content.errors }}</div>{% endif %}
+                                    <div class="form-group">
+                                        {{ form.content }}
+                                    </div>
+                                    <div>
+                                        <div class="col-md-2 col-md-offset-5">
+                                            <button type="submit" class="btn btn-danger btn-fill">
+                                                Enviar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   {#      Modal de Login      #}
+{#   <div id="login_modal" class="modal fade" role="dialog">#}
+{#        <div class="modal-dialog modal-md" role="document">#}
+{#            <div class="modal-content">#}
+{#                <div class="section section-signin col-md-10 col-md-offset-1">#}
+{#                    <form action="{% url 'iformats.contas:login' %}" method="post">#}
+{#                        {% csrf_token %}#}
+{#                        <div class="form-container">#}
+{#                            <div class="text-center">#}
+{#                                <div class="modal-title">#}
+{#                                    <h2>Bem Vindo</h2>#}
+{#                                    <div class="separator separator-danger">✻</div>#}
+{#                                </div>#}
+{##}
+{#                                <div class="row">#}
+{#                                    <div class="col-md-8 col-md-offset-2">#}
+{#                                        <label><h4 class="text-gray">E-mail</h4></label>#}
+{#                                        <div class="form-group">#}
+{#                                            {{ login_form.email }}#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="col-md-8 col-md-offset-2">#}
+{#                                        <label><h4 class="text-gray">Senha</h4></label>#}
+{#                                        <div class="form-group">#}
+{#                                            {{ login_form.senha }}#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                                <div class="footer">#}
+{#                                    <center><div class="g-signin2" data-onsuccess="onSignIn"></div></center>#}
+{#                                    <br>#}
+{#                                    <button type="submit" class="btn btn-danger btn-round btn-fill btn-wd">#}
+{#                                        Entrar#}
+{#                                    </button>#}
+{##}
+{#                                    <p style="margin-top: 4em" class="text-gray info">Não possui uma conta? <a href="#">Cadastre-se</a></p>#}
+{#                                </div>#}
+{##}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#   </div>#}
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% if menu %}
+
+        <!-- BEGIN MENUBAR-->
+        <div id="menubar" class="menubar-inverse ">
+            <div class="menubar-fixed-panel">
+                <div>
+                    <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <div class="expanded">
+                    <a href="#">
+                        <span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nano has-scrollbar" style="height: 586px;">
+              <div class="nano-content" tabindex="0" style="right: -15px;">
+                <div class="menubar-scroll-panel">
+                    <!-- BEGIN MAIN MENU -->
+                    <ul id="main-menu" class="gui-controls">
+                        <li>
+                            <a href="{% url 'iformats.trabalhos:inicio' trabalho_id=menu.preambulo.id %}" class="active">
+                                <div class="gui-icon"><i class="fa fa-home"></i></div>
+                                <span class="title">Home</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'iformats.trabalhos:editar_preambulo' trabalho_id=menu.preambulo.id %}">
+                                <div class="gui-icon"><i class="fa fa-bookmark"></i></div>
+                                <span class="title">Dados do Projeto</span>
+                            </a>
+                        </li>
+
+                        <li class="gui-folder">
+                            <a>
+                                <div class="gui-icon"><i class="fa fa-bookmark-o"></i></div>
+                                <span class="title">Pré textuais</span>
+                            </a>
+                            <ul>
+                                {% for topico in menu.pre_textual %}
+                                    <li>
+                                        <a href="{% url 'iformats.trabalhos:editar_topico' trabalho_id=topico.trabalho_id  topico_id=topico.id %}">
+                                            <span class="title">{{ topico.titulo_topico }}</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                        {% for val in menu.textual %}
+                            {% for k, v in val.items %}
+                            <li class="gui-folder">
+                                <a>
+                                    <div class="gui-icon"><i class="fa fa-bookmark-o"></i></div>
+                                    <span class="title">{{ k }}</span>
+                                </a>
+                                <ul>
+                                    {% for topico in v %}
+                                        <li>
+                                            <a href="{% url 'iformats.trabalhos:editar_topico' trabalho_id=topico.trabalho_id  topico_id=topico.id %}">
+                                                <span class="title">{{ topico.indice }} - {{ topico.titulo_topico }}</span>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        {% endfor %}
+
+                        <li class="gui-folder">
+                            <a>
+                                <div class="gui-icon"><i class="fa fa-bookmark-o"></i></div>
+                                <span class="title">Pós textuais</span>
+                            </a>
+                            <ul>
+                                {% for topico in menu.pos_textual %}
+                                    <li>
+                                        <a href="{% url 'iformats.trabalhos:editar_topico' trabalho_id=topico.trabalho_id  topico_id=topico.id %}">
+                                            <span class="title">{{ topico.titulo_topico }}</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+             </div>
+        </div>
+
+        <div class="nano-pane" style="display: none;">
+            <div class="nano-slider" style="height: 571px; transform: translate(0px, 0px);"></div>
+        </div>
+
+{% endif %}
