@@ -3,7 +3,7 @@
 
 Sistema web para formatação de trabalhos ciêntíficos seguindo as normas da ABNT. A versão atual conta apenas com o trabalho de Monografia (TCC), seguindo os padrões do Instituto Federal de Educação Ciência e Tecnologia do Sul de Minas Gerais campus Muzambinho.
 
-![Página Inicial do Sistema](https://lh3.googleusercontent.com/LHsBzsCVcxeI77E-YcDpw1MvtZdyjuC2qTJQYXZ9IsdvgHZ3T22klntprjXVJf5p051nqqgCtqTFZw=w1920-h979)
+![Página Inicial do Sistema](https://doc-0s-30-docs.googleusercontent.com/docs/securesc/6aianktupd61tlrh8qns48f8rsl28lt0/9abeshbj5805rocjrmrbc3d717mhr0uc/1524146400000/12251194828128585323/12251194828128585323/1hhl9EKUGn7kYx4Ed_XjDNLHzbMLm2_Ia?e&nonce=7butqkhe9ni26&user=12251194828128585323&hash=tt4hvpqea5oub2n5j3nj96hntio5es1a)
 
 ## Instalação
 
