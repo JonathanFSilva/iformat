@@ -101,6 +101,8 @@ ENV/
 # mypy
 .mypy_cache/
 
-migrations
+migrations/
 
 *.sqlite3
+
+media/

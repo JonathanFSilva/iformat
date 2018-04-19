@@ -2,7 +2,7 @@ from django.conf.urls import url
 
 from . import views
 
-app_name = 'iformats.trabalhos'
+app_name = 'iformat.trabalhos'
 urlpatterns = [
     url(r'^$', views.trabalhos, name='trabalhos'),
 

@@ -168,7 +168,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="contact-form">
-                        <form action="{% url 'iformats.core:contact' %}" method="post">{% csrf_token %}
+                        <form action="{% url 'iformat.core:contact' %}" method="post">{% csrf_token %}
                             <div class="row">
                                 <div class="col-md-4">
                                     {% if form.contact_name.errors %}<div class="alert alert-danger alert-dismissable">{{ form.contact_name.errors }}</div>{% endif %}
@@ -217,7 +217,7 @@
 {#        <div class="modal-dialog modal-md" role="document">#}
 {#            <div class="modal-content">#}
 {#                <div class="section section-signin col-md-10 col-md-offset-1">#}
-{#                    <form action="{% url 'iformats.contas:login' %}" method="post">#}
+{#                    <form action="{% url 'iformat.contas:login' %}" method="post">#}
 {#                        {% csrf_token %}#}
 {#                        <div class="form-container">#}
 {#                            <div class="text-center">#}

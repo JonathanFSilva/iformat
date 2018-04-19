@@ -25,7 +25,7 @@
             <div class="section-body">
                 <h2 class="text-primary">
                     Meus Trabalhos
-                    <a href="{% url 'iformats.trabalhos:preambulo' %}" style="float: right;" class="btn btn-icon-toggle ink-reaction btn-floating-action btn-primary btn-lg" data-toggle="tooltip" data-placement="top" data-original-title="Novo trabalho"><i class="fa fa-plus"></i></a>
+                    <a href="{% url 'iformat.trabalhos:preambulo' %}" style="float: right;" class="btn btn-icon-toggle ink-reaction btn-floating-action btn-primary btn-lg" data-toggle="tooltip" data-placement="top" data-original-title="Novo trabalho"><i class="fa fa-plus"></i></a>
                 </h2>
                 <br>
                 <table class="table table-hover">
@@ -46,10 +46,10 @@
                             <td>{{ trabalho.ultima_edicao }}</td>
                             <td>{{ trabalho.data_criacao }}</td>
                             <td class="text-right">
-                                <a href="{% url 'iformats.trabalhos:download' trabalho.id %}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Download"><i class="fa fa-download"></i></a>
-                                <a href="{% url 'iformats.trabalhos:visualizar' trabalho.id %}" target="_blank" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Visualizar"><i class="fa fa-file-pdf-o"></i></a>
-                                <a href="{% url 'iformats.trabalhos:inicio' trabalho.id %}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Editar trabalho"><i class="fa fa-pencil"></i></a>
-{#                                <a href="{% url 'iformats.trabalhos:excluir_trabalho' trabalho.id %}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Excluir trabalho"><i class="fa fa-trash-o"></i></a>#}
+                                <a href="{% url 'iformat.trabalhos:download' trabalho.id %}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Download"><i class="fa fa-download"></i></a>
+                                <a href="{% url 'iformat.trabalhos:visualizar' trabalho.id %}" target="_blank" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Visualizar"><i class="fa fa-file-pdf-o"></i></a>
+                                <a href="{% url 'iformat.trabalhos:inicio' trabalho.id %}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Editar trabalho"><i class="fa fa-pencil"></i></a>
+{#                                <a href="{% url 'iformat.trabalhos:excluir_trabalho' trabalho.id %}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Excluir trabalho"><i class="fa fa-trash-o"></i></a>#}
                                 <a onclick="confirma_exclusao({{ trabalho.id }});" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Excluir trabalho"><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>

@@ -1,1 +1,1 @@
-web: gunicorn iformats.wsgi --log-file -
+web: gunicorn iformat.wsgi --log-file -

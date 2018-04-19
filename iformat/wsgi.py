@@ -1,5 +1,5 @@
 """
-WSGI config for iformats project.
+WSGI config for iformat project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "iformats.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "iformat.settings")
 
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)

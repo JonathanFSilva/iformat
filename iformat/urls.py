@@ -21,14 +21,14 @@ from django.contrib import admin
 from django.contrib.auth import views
 
 
-# handler400 = 'iformats.core.views.bad_request'
-# handler403 = 'iformats.core.views.permission_denied'
-# handler404 = 'iformats.core.views.page_not_found'
-# handler500 = 'iformats.core.views.server_error'
+# handler400 = 'iformat.core.views.bad_request'
+# handler403 = 'iformat.core.views.permission_denied'
+# handler404 = 'iformat.core.views.page_not_found'
+# handler500 = 'iformat.core.views.server_error'
 
 urlpatterns = [
-    url(r'^', include('iformats.core.urls')),
-    url(r'^trabalhos/', include('iformats.trabalhos.urls')),
+    url(r'^', include('iformat.core.urls')),
+    url(r'^trabalhos/', include('iformat.trabalhos.urls')),
 
     url(r'oauth/', include('social_django.urls', namespace='social')),
     url(r'^logout/$', views.LogoutView.as_view(), name='logout'),
